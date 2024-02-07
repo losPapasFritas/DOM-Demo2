@@ -14,7 +14,12 @@ document.addEventListener("DOMContentLoaded", function () {
       nameOutput.innerText = eventData.target.value;
       console.log(eventData);
     })
-
+    document.getElementById(`type`).addEventListener(`change`, function (eventData) {
+      let info = document.getElementById(`info`);
+      info.innerText = eventData.target.value;
+      console.log(eventData);
+      changeCert(eventData.target.value);
+    })
     
     // process form Data
     document.getElementById("myForm").addEventListener("submit", function (eventData) {
@@ -32,7 +37,33 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     // Log readiness to console
     console.log("Ready");
+    // info.classList.add(`test`);
+    // let nameOutput = document.getElementById(`nameOutput`);
+    // nameOutput.classList.toggle(`visible`);
+    
+    function changeCert(value){
+      let certificate = document.getElementById(`certificate`);
+      certificate.classList = ""; //clear classes on each function call
+      switch(value){
+        case `A`:
+          certificate.classList.add(`number1`);
+          break;
+        case `B`:
+          certificate.classList.add(`number2`);
+          break;
+        case `C`:
+          certificate.classList.add(`number3`);
+          break;
+        case `D`:
+          certificate.classList.add(`number4`);
+          break;
+      }
+    };
 });
+/*additional thngs to be aware of*/
+let info = document.getElementById(`info`);
+
+
 
 function processForm(form){
 
